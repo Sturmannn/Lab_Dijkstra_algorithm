@@ -12,15 +12,6 @@
 #include "graph.hpp"
 #include "gtest.h"
 
-// const char* input_file_path =
-// "H:\\source\\repos\\Lab_Dijkstra_algorithm\\input_output\\input.txt"; const
-// char* input_file_path_2 =
-// "H:\\source\\repos\\Lab_Dijkstra_algorithm\\input_output\\input_2.txt"; const
-// char* input_file_path_3 =
-// "H:\\source\\repos\\Lab_Dijkstra_algorithm\\input_output\\input_3.txt"; const
-// char* output_file_path =
-// "H:\\source\\repos\\Lab_Dijkstra_algorithm\\input_output\\output.txt";
-
 const char* input_file_path = "..\\..\\input_output\\input.txt";
 const char* input_file_path_2 = "..\\..\\input_output\\input_2.txt";
 const char* input_file_path_3 = "..\\..\\input_output\\input_3.txt";
@@ -106,11 +97,6 @@ TEST(TEST_NATIVE_DIJKSTRA, BOOST_ONE_TEST) {
 
 TEST(TEST_NATIVE_DIJKSTRA, BOOST_ONE_RANDOM_GENERATE_TO_GRAPH_TEST) {
   gen::Random_Generator<size_t> random_coef_edges;
-  // for (size_t count_vertex = (size_t)10, count_edges =
-  // random_coef_edges.generate(count_vertex, (count_vertex * count_vertex -
-  // count_vertex) >> (size_t)1); count_vertex != (size_t)100'00; count_vertex *=
-  // (size_t)10, count_edges = random_coef_edges.generate(count_vertex,
-  // (count_vertex * count_vertex - count_vertex) >> (size_t)1))
   for (size_t count_vertex = (size_t)10,
     count_edges = random_coef_edges.generate(
       count_vertex, (count_vertex * count_vertex - count_vertex));
@@ -123,11 +109,9 @@ TEST(TEST_NATIVE_DIJKSTRA, BOOST_ONE_RANDOM_GENERATE_TO_GRAPH_TEST) {
     std::vector<size_t> djk_heap = graph.Dijkstra_3Heap();
 
     std::vector<Edge> vec;
-    // vec.reserve(count_edges << (size_t)1);
     vec.reserve(count_edges);
     std::vector<size_t> wghts;
     wghts.reserve(count_edges);
-    // wghts.reserve(count_edges << (size_t)1);
 
     for (size_t i = (size_t)0; i < graph.Get_vertexCount(); ++i) {
       for (const auto& j : graph[i]) {
@@ -136,8 +120,6 @@ TEST(TEST_NATIVE_DIJKSTRA, BOOST_ONE_RANDOM_GENERATE_TO_GRAPH_TEST) {
       }
     }
 
-    // boost_Graph g(vec.data(), vec.data() + (count_edges << (size_t)1),
-    // wghts.data(), count_vertex);
     boost_Graph g(vec.data(), vec.data() + vec.size(), wghts.data(),
       count_vertex);
     std::vector<Vertex> p(num_vertices(g));
@@ -181,8 +163,6 @@ TEST(TEST_NATIVE_DIJKSTRA, BOOST_LOT_RANDOM_TESTS) {
       }
     }
 
-    // boost_Graph g(vec.data(), vec.data() + (count_edges << (size_t)1),
-    // wghts.data(), count_vertex);
     boost_Graph g(vec.data(), vec.data() + vec.size(), wghts.data(),
       count_vertex);
     std::vector<Vertex> p(num_vertices(g));

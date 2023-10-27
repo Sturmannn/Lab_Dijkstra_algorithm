@@ -220,13 +220,10 @@ namespace graph {
 
   std::vector<size_t>& graph::Graph::Dijkstra_Mark() {
     if (!graph.empty()) {
-      // std::vector<size_t> dist(graph.size(), INF);
       dist.resize(vertexCount);
       dist.assign(vertexCount, INF);
       dist[Get_startVertex()] = (size_t)0;
       std::vector<bool> visited(graph.size());
-      // all_paths.resize(vertexCount);
-      // all_paths.resize(graph.size(), RESERVE_SIZE_MAX);
       all_paths.resize(vertexCount);
       all_paths.assign(vertexCount, INF);
 
@@ -253,69 +250,13 @@ namespace graph {
 
   std::vector<size_t>& graph::Graph::Dijkstra_3Heap() {
     if (!graph.empty()) {
-
-      //int n, len;
-      ////int* dist;
-      //int* up;
-      //int* h;
-
-
-      //len = 0;
-      //int* upp = new int[n];
-      //for (int i = 0; i < n; i++)
-      //{
-      //  dist[i] = INT_MAX;
-      //  upp[i] = -1;
-      //  h[i] = 0;
-      //}
-      //dist[start_vertex] = 0;
-      ////D_Heap A(n);
-      //heap::d_Heap<graph::Edge, 3> A;
-      ////A.insert(0, start_vertex);
-      //A.push({ start_vertex, 0 });
-      //while (!A.isEmpty())
-      //{
-      //  //int currentVertex = A.remove(0);
-      //  graph::Edge currentVertex = A.pop(0);
-      //  h[currentVertex] = 1;
-      //  for (int j = 0; j < n; j++)
-      //  {
-      //    if (graph[currentVertex][j] != 0 && dist[currentVertex] != INF && dist[currentVertex] + graph[currentVertex][j] < dist[j])
-      //    {
-      //      if (A.findVertex(j))
-      //      {
-      //        A.key[j] = dist[currentVertex] + graph[currentVertex][j];
-      //        dist[j] = dist[currentVertex] + graph[currentVertex][j];
-      //        upp[j] = currentVertex;
-      //      }
-      //      else
-      //      {
-      //        dist[j] = dist[currentVertex] + graph[currentVertex][j];
-      //        A.insert(dist[j], j);
-      //        upp[j] = currentVertex;
-      //      }
-      //    }
-
-      //  }
-      //}
-      //int current = index_end;
-      //while (current != -1) {
-      //  up[len] = current;
-      //  len++;
-      //  current = upp[current];
-      //}
-
       size_t n = graph.size();
-      //vector<int> dist(n, INF);
       dist.resize(vertexCount);
       dist.assign(vertexCount, INF);
       dist[start_vertex] = (size_t)0;
       heap::d_Heap<graph::Edge, 3> heap;
-      //priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> heap;
       heap.push({ dist[start_vertex], start_vertex });
       while (!heap.isEmpty()) {
-        //int u = heap.top().second;
-        //heap.pop();
         size_t u = heap.extract_min().weight;
         for (auto& edge : graph[u]) {
           size_t v = edge.to;
@@ -327,9 +268,6 @@ namespace graph {
         }
       }
       return dist;
-
-
-
 
 
       //// std::vector<size_t> dist(graph.size(), INF);

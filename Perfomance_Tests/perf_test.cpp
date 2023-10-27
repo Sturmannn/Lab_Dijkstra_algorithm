@@ -4,7 +4,7 @@
 
 namespace perf
 {
-  void perf::test_measurement_1_1()
+  void perf::test_measurement_1()
   {
     std::ofstream output_file(path1);
     if (!output_file.is_open())
@@ -20,36 +20,23 @@ namespace perf
     for (size_t num_v = (size_t)101; num_v < border; num_v += (size_t)100)
     {
       graph::Graph graph;
-      //num_edge = num_v * (size_t)100;
       num_edge = num_v * num_v / (size_t)10;
       graph.generate_to_graph(num_v, num_edge, (size_t)1, (size_t)1e6);
 
       auto cl1 = clock();
-      //start = std::chrono::high_resolution_clock::now();
       graph.Dijkstra_3Heap();
       auto cl2 = clock();
-      //end = std::chrono::high_resolution_clock::now();
-      //duration = std::chrono::duration_cast<time_ml>(end - start);
-      //output_file << duration.count() << ' ';
       output_file << cl2 - cl1 << ' ';
 
-      //output_file << 0 << ' ';
-
       cl1 = clock();
-      //start = std::chrono::high_resolution_clock::now();
       graph.Dijkstra_Mark();
       cl2 = clock();
-      //end = std::chrono::high_resolution_clock::now();
-      //duration = std::chrono::duration_cast<time_ml>(end - start);
       output_file << cl2 - cl1 << '\n';
-
-      //output_file << duration.count() << '\n';
-
     }
     output_file.close();
   }
 
-  void perf::test_measurement_1_2()
+  void perf::test_measurement_2()
   {
     std::ofstream output_file(path2);
     if (!output_file.is_open())
@@ -85,7 +72,7 @@ namespace perf
     output_file.close();
   }
 
-  void perf::test_measurement_2_1()
+  void perf::test_measurement_3()
   {
     std::ofstream output_file(path3);
     if (!output_file.is_open())
@@ -105,31 +92,20 @@ namespace perf
       graph.generate_to_graph(num_v, num_edge, (size_t)1, (size_t)1e6);
 
       auto cl1 = clock();
-      //start = std::chrono::high_resolution_clock::now();
       graph.Dijkstra_3Heap();
       auto cl2 = clock();
-      //end = std::chrono::high_resolution_clock::now();
-      //duration = std::chrono::duration_cast<time_ml>(end - start);
-      //output_file << duration.count() << ' ';
       output_file << cl2 - cl1 << ' ';
       
-      //output_file << 0 << ' ';
 
       cl1 = clock();
-      //start = std::chrono::high_resolution_clock::now();
       graph.Dijkstra_Mark();
       cl2 = clock();
-      //end = std::chrono::high_resolution_clock::now();
-      //duration = std::chrono::duration_cast<time_ml>(end - start);
       output_file << cl2 - cl1 << '\n';
-
-      //output_file << duration.count() << '\n';
-
     }
     output_file.close();
   }
 
-  void perf::test_measurement_2_2()
+  void perf::test_measurement_4()
   {
     std::ofstream output_file(path4);
     if (!output_file.is_open())
@@ -149,31 +125,19 @@ namespace perf
       graph.generate_to_graph(num_v, num_edge, (size_t)1, (size_t)1e6);
 
       auto cl1 = clock();
-      //start = std::chrono::high_resolution_clock::now();
       graph.Dijkstra_3Heap();
       auto cl2 = clock();
-      //end = std::chrono::high_resolution_clock::now();
-      //duration = std::chrono::duration_cast<time_ml>(end - start);
-      //output_file << duration.count() << ' ';
       output_file << cl2 - cl1 << ' ';
 
-      //output_file << 0 << ' ';
-
       cl1 = clock();
-      //start = std::chrono::high_resolution_clock::now();
       graph.Dijkstra_Mark();
       cl2 = clock();
-      //end = std::chrono::high_resolution_clock::now();
-      //duration = std::chrono::duration_cast<time_ml>(end - start);
       output_file << cl2 - cl1 << '\n';
-
-      //output_file << duration.count() << '\n';
-
     }
     output_file.close();
   }
 
-  void perf::test_measurement_3()
+  void perf::test_measurement_5()
   {
     std::ofstream output_file(path5);
     if (!output_file.is_open())
@@ -192,31 +156,19 @@ namespace perf
       graph.generate_to_graph(num_v, num_edge, (size_t)1, (size_t)1e6);
 
       auto cl1 = clock();
-      //start = std::chrono::high_resolution_clock::now();
       graph.Dijkstra_3Heap();
       auto cl2 = clock();
-      //end = std::chrono::high_resolution_clock::now();
-      //duration = std::chrono::duration_cast<time_ml>(end - start);
-      //output_file << duration.count() << ' ';
+      
       output_file << cl2 - cl1 << ' ';
-
-      //output_file << 0 << ' ';
-
       cl1 = clock();
-      //start = std::chrono::high_resolution_clock::now();
       graph.Dijkstra_Mark();
       cl2 = clock();
-      //end = std::chrono::high_resolution_clock::now();
-      //duration = std::chrono::duration_cast<time_ml>(end - start);
       output_file << cl2 - cl1 << '\n';
-
-      //output_file << duration.count() << '\n';
-
     }
     output_file.close();
   }
 
-  void perf::test_measurement_4_1()
+  void perf::test_measurement_6()
   {
     std::ofstream output_file(path6);
     if (!output_file.is_open())
@@ -236,31 +188,19 @@ namespace perf
       graph.generate_to_graph(num_v, num_edge, (size_t)1, (size_t)max_w);
 
       auto cl1 = clock();
-      //start = std::chrono::high_resolution_clock::now();
       graph.Dijkstra_3Heap();
       auto cl2 = clock();
-      //end = std::chrono::high_resolution_clock::now();
-      //duration = std::chrono::duration_cast<time_ml>(end - start);
-      //output_file << duration.count() << ' ';
       output_file << cl2 - cl1 << ' ';
 
-      //output_file << 0 << ' ';
-
       cl1 = clock();
-      //start = std::chrono::high_resolution_clock::now();
       graph.Dijkstra_Mark();
       cl2 = clock();
-      //end = std::chrono::high_resolution_clock::now();
-      //duration = std::chrono::duration_cast<time_ml>(end - start);
       output_file << cl2 - cl1 << '\n';
-
-      //output_file << duration.count() << '\n';
-
     }
     output_file.close();
   }
 
-  void perf::test_measurement_4_2()
+  void perf::test_measurement_7()
   {
     std::ofstream output_file(path7);
     if (!output_file.is_open())
@@ -280,26 +220,14 @@ namespace perf
       graph.generate_to_graph(num_v, num_edge, (size_t)1, (size_t)max_w);
 
       auto cl1 = clock();
-      //start = std::chrono::high_resolution_clock::now();
       graph.Dijkstra_3Heap();
       auto cl2 = clock();
-      //end = std::chrono::high_resolution_clock::now();
-      //duration = std::chrono::duration_cast<time_ml>(end - start);
-      //output_file << duration.count() << ' ';
       output_file << cl2 - cl1 << ' ';
 
-      //output_file << 0 << ' ';
-
       cl1 = clock();
-      //start = std::chrono::high_resolution_clock::now();
       graph.Dijkstra_Mark();
       cl2 = clock();
-      //end = std::chrono::high_resolution_clock::now();
-      //duration = std::chrono::duration_cast<time_ml>(end - start);
       output_file << cl2 - cl1 << '\n';
-
-      //output_file << duration.count() << '\n';
-
     }
     output_file.close();
   }
@@ -307,20 +235,13 @@ namespace perf
 
 int main()
 {
-  perf::test_measurement_1_1();
-  //time_type start, end;
-  //time_s duration;
-  //start = std::chrono::high_resolution_clock::now();
-  perf::test_measurement_1_2();
-  perf::test_measurement_2_1();
-  //end = std::chrono::high_resolution_clock::now();
-  //duration = std::chrono::duration_cast<time_s>(end - start);
-  //std::cout << "Duration = " << duration.count() / 60. << std::endl;
-
-  perf::test_measurement_2_2();
+  perf::test_measurement_1();
+  perf::test_measurement_2();
   perf::test_measurement_3();
-  perf::test_measurement_4_1();
-  perf::test_measurement_4_2();
+  perf::test_measurement_4();
+  perf::test_measurement_5();
+  perf::test_measurement_6();
+  perf::test_measurement_7();
 
   return 0;
 }
