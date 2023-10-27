@@ -1,0 +1,61 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+% \usepackage[portuges]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{float}%"Плавающие" картинки
+\usepackage{wrapfig}%Обтекание фигур (таблиц, картинок и прочего)
+\usepackage{listings}
+\lstset {
+    language=C++,
+    backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+	inputencoding=utf8,   
+    extendedchars=\true
+}
+\usepackage{enumitem}
+\usepackage[unicode, colorlinks,citecolor=black,urlcolor=blue,bookmarks=false,hypertexnames=true]{hyperref}
+
+\graphicspath{ {images} }
+
+\usepackage{movie15}
+\usepackage{indentfirst}
+\usepackage{verbatim}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{listings} 
+\usepackage{caption}
+\usepackage{pifont}
+\usepackage{relsize}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
+
+\usepackage{lipsum}% http://ctan.org/pkg/lipsum
+\usepackage{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{xparse}% http://ctan.org/pkg/xparse
+\NewDocumentCommand{\myrule}{O{1pt} O{2pt} O{black}}{%
+  \par\nobreak % don't break a page here
+  \kern\the\prevdepth % don't take into account the depth of the preceding line
+  \kern#2 % space before the rule
+  {\color{#3}\hrule height #1 width\hsize} % the rule
+  \kern#2 % space after the rule
+  \nointerlineskip % no additional space after the rule
+}
+\usepackage[section]{placeins}
+
+\usepackage{booktabs}
+\usepackage{colortbl}%
+\newcommand{\myrowcolour}{\rowcolor[gray]{0.925}}
+   
+%\usepackage[obeyspaces]{url}
+%\usepackage{etoolbox}
+%\usepackage[colorlinks,citecolor=black,urlcolor=blue,bookmarks=false,hypertexnames=true]{hyperref} 
+
+\usepackage[a4paper, mag=1000, left=2cm, right=2cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1cm]{geometry}
+\usepackage[english,russian]{babel}
